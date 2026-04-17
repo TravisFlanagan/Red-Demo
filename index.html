@@ -90,7 +90,9 @@
             height: 70vh; /* Dynamic height */
             min-height: 500px;
             display: flex;
+            flex-direction: row; /* Force side-by-side on desktop */
             overflow: hidden;
+            background-color: var(--brand-navy); /* Fallback background */
         }
 
         .hero-panel {
@@ -113,15 +115,15 @@
             }
         }
 
-        /* Specific Images for the 3 Services */
+        /* Specific Images for the 3 Services - Using direct Unsplash source links */
         .panel-gutter {
-            background-image: url('https://images.unsplash.com/photo-1558428807-6b66fa19b0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); /* Man on ladder/roof */
+            background-image: url('https://images.unsplash.com/photo-1558428807-6b66fa19b0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); 
         }
         .panel-snow {
-            background-image: url('https://images.unsplash.com/photo-1610419263654-e69c5e5330e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); /* Snow clearing */
+            background-image: url('https://images.unsplash.com/photo-1610419263654-e69c5e5330e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); 
         }
         .panel-lawn {
-            background-image: url('https://images.unsplash.com/photo-1592424005697-39b071661611?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); /* Landscaping/Grass */
+            background-image: url('https://images.unsplash.com/photo-1592424005697-39b071661611?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); 
         }
 
         /* Heavy dark gradient over the images so text is readable */
@@ -131,8 +133,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(15, 41, 66, 0.9));
+            /* Changed gradient to be slightly more transparent so photos show through clearly */
+            background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(15, 41, 66, 0.85));
             z-index: 1;
+            pointer-events: none; /* Crucial: Allows hover effect to pass through to panels below */
         }
 
         /* The text content sits ON TOP of the 3 panels */
