@@ -90,9 +90,11 @@
             height: 70vh;
             min-height: 500px;
             display: flex;
-            overflow: hidden;
-            /* Direct background image of a man cleaning gutters */
-            background: url('https://images.unsplash.com/photo-1558428807-6b66fa19b0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            background-color: var(--brand-navy); /* Fallback */
+            background-image: url('https://images.unsplash.com/photo-1558428807-6b66fa19b0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .hero-overlay {
@@ -101,8 +103,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Dark gradient to ensure text readability */
-            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(15, 41, 66, 0.85));
+            /* Lighter gradient so the photo is extremely visible */
+            background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(15, 41, 66, 0.6));
             z-index: 1;
         }
 
