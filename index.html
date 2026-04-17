@@ -82,61 +82,28 @@
         }
 
         /* ========================================================
-           NEW: 3-PANEL DYNAMIC HERO SECTION
+           NEW: SINGLE HERO IMAGE (GUTTER FOCUS)
            ======================================================== */
         .hero-container {
             position: relative;
             width: 100%;
-            height: 70vh; /* Dynamic height */
+            height: 70vh;
             min-height: 500px;
             display: flex;
-            flex-direction: row; /* Force side-by-side on desktop */
             overflow: hidden;
-            background-color: var(--brand-navy); /* Fallback background */
+            /* Direct background image of a man cleaning gutters */
+            background: url('https://images.unsplash.com/photo-1558428807-6b66fa19b0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
         }
 
-        .hero-panel {
-            flex: 1;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            transition: flex 0.5s ease; /* Smooth expansion on hover */
-        }
-
-        /* Hover effect: Expand the hovered panel slightly */
-        @media (min-width: 768px) {
-            .hero-container:hover .hero-panel {
-                flex: 1; 
-            }
-            .hero-panel:hover {
-                flex: 1.5; 
-            }
-        }
-
-        /* Specific Images for the 3 Services - Using direct Unsplash source links */
-        .panel-gutter {
-            background-image: url('https://images.unsplash.com/photo-1558428807-6b66fa19b0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); 
-        }
-        .panel-snow {
-            background-image: url('https://images.unsplash.com/photo-1610419263654-e69c5e5330e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); 
-        }
-        .panel-lawn {
-            background-image: url('https://images.unsplash.com/photo-1592424005697-39b071661611?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); 
-        }
-
-        /* Heavy dark gradient over the images so text is readable */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            /* Changed gradient to be slightly more transparent so photos show through clearly */
-            background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(15, 41, 66, 0.85));
+            /* Dark gradient to ensure text readability */
+            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(15, 41, 66, 0.85));
             z-index: 1;
-            pointer-events: none; /* Crucial: Allows hover effect to pass through to panels below */
         }
 
         /* The text content sits ON TOP of the 3 panels */
@@ -369,20 +336,32 @@
             color: var(--brand-green);
         }
 
-        /* Mobile Adjustments for the 3-Panel Hero */
+        /* Mobile Adjustments */
         @media (max-width: 768px) { 
             .hero-container {
-                flex-direction: column; /* Stack panels vertically on phones */
-                height: auto;
-                min-height: 80vh;
-            }
-            .hero-panel {
-                min-height: 33.33%;
+                height: 60vh;
+                min-height: 400px;
             }
             .hero-content h2 { font-size: 2.2rem; } 
             .hero-content p { font-size: 1.1rem; }
-            .services { flex-direction: column; align-items: center; } 
-            .service-card { width: 100%; max-width: 100%; }
+            .services { 
+                flex-direction: column; 
+                align-items: center; /* Center the cards in the column */
+                gap: 1.5rem;
+            } 
+            .service-card { 
+                width: 90%; /* Fixed width for better mobile centering */
+                max-width: 400px; 
+                margin: 0 auto; /* Ensure horizontal centering */
+            }
+            .contact-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-card {
+                width: 90%;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -396,17 +375,12 @@
         <h1>Northstar Property Care</h1>
     </header>
 
-    <!-- NEW 3-PANEL DYNAMIC HERO SECTION -->
+    <!-- NEW HERO SECTION (SINGLE IMAGE GUTTER FOCUS) -->
     <div class="hero-container">
-        <!-- The Background Panels -->
-        <div class="hero-panel panel-gutter"></div>
-        <div class="hero-panel panel-snow"></div>
-        <div class="hero-panel panel-lawn"></div>
-        
-        <!-- The Dark Gradient Overlay -->
+        <!-- The Background is set in CSS, we only need the overlay and content here -->
         <div class="hero-overlay"></div>
 
-        <!-- The Text & Button (Centered over all panels) -->
+        <!-- The Text & Button (Centered) -->
         <div class="hero-content">
             <h2>Reliable. Professional. Local.</h2>
             <p>Your trusted partner in London, Ontario for expert gutter maintenance, residential snow removal, and landscaping services.</p>
